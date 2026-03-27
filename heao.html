@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Network Tutorial | NetDocs Comprehensive Guide</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        #sidebar::-webkit-scrollbar { width: 6px; }
+        #sidebar::-webkit-scrollbar-track { background: #f1f1f1; }
+        #sidebar::-webkit-scrollbar-thumb { background: #ccc; border-radius: 10px; }
+        .active-w3 { background-color: #04AA6D !important; color: white !important; font-weight: bold; }
+        .sidebar-link { @apply block px-4 py-2 text-[15px] hover:bg-gray-200 transition-colors border-b border-gray-100; }
+        .step-badge { @apply bg-[#04AA6D] text-white px-3 py-1 rounded-full text-sm font-bold mr-2; }
+        code { @apply bg-gray-100 px-1 rounded text-red-600 font-mono text-sm; }
+    </style>
+</head>
+<body class="bg-white font-sans text-slate-900">
+
+    <header class="sticky top-0 z-[100] bg-white border-b">
+        <div class="flex items-center justify-between px-5 py-3 shadow-sm">
+            <div class="flex items-center gap-6">
+                <div class="text-3xl font-bold text-[#04AA6D] tracking-tight">NetDocs</div>
+            </div>
+            <button class="bg-[#04AA6D] text-white px-6 py-2 rounded-full font-bold hover:bg-black transition-all">Sign In</button>
+        </div>
+    </header>
+
+    <div class="flex">
+        <aside id="sidebar" class="hidden md:block w-64 h-[calc(100vh-64px)] sticky top-[64px] bg-[#E7E9EB] overflow-y-auto pt-5 border-r">
+            <h4 class="px-4 font-bold text-lg mb-3">Network Tutorial</h4>
+            <div class="flex flex-col">
+                <a href="#intro" class="sidebar-link active-w3">1. Network HOME</a>
+                <a href="#cisco-modes" class="sidebar-link">2. Cisco IOS Modes</a>
+                <a href="#router-config" class="sidebar-link">3. Router Configuration</a>
+                <a href="#ping" class="sidebar-link">4. Network Ping</a>
+                <a href="#contact" class="sidebar-link">5. Contact Us</a>
+            </div>
+        </aside>
+
+        <main class="flex-1 bg-white min-h-screen">
+            <div class="max-w-4xl mx-auto px-6 lg:px-12 py-10">
+                
+                <section id="intro" class="scroll-mt-24 mb-20">
+                    <div class="bg-[#D9EEE1] p-12 rounded-lg mb-10">
+                        <h1 class="text-5xl font-bold mb-4 tracking-tight">Network Tutorial</h1>
+                        <p class="text-xl text-slate-700">A detailed, step-by-step journey through professional networking.</p>
+                    </div>
+                    <h2 class="text-3xl font-bold mb-6">1. Getting Started</h2>
+                    <p class="text-lg text-gray-700 leading-relaxed mb-4">
+                        A computer network is the backbone of modern communication. To manage professional hardware, we use the <b>Cisco Internetwork Operating System (IOS)</b>.
+                    </p>
+                </section>
+
+                <hr class="border-slate-200 my-12">
+
+                <section id="cisco-modes" class="scroll-mt-24 mb-20">
+                    <h2 class="text-3xl font-bold mb-6">2. Understanding the 4 Cisco Modes</h2>
+                    <p class="mb-6 text-gray-700">Before configuring, you must recognize the prompt to know your access level:</p>
+                    
+                    <div class="space-y-4 mb-8">
+                        <div class="p-4 border-l-4 border-blue-500 bg-blue-50">
+                            <h4 class="font-bold">Mode 1: User EXEC Mode (<code>Router></code>)</h4>
+                            <p class="text-sm">Default entry mode. Limited to basic monitoring and viewing statistics.</p>
+                        </div>
+                        <div class="p-4 border-l-4 border-green-500 bg-green-50">
+                            <h4 class="font-bold">Mode 2: Privileged EXEC Mode (<code>Router#</code>)</h4>
+                            <p class="text-sm">Accessed via the <code>enable</code> command. Allows full viewing of configurations and file management.</p>
+                        </div>
+                        <div class="p-4 border-l-4 border-orange-500 bg-orange-50">
+                            <h4 class="font-bold">Mode 3: Global Configuration Mode (<code>Router(config)#</code>)</h4>
+                            <p class="text-sm">Accessed via <code>configure terminal</code>. Used for commands that affect the entire system.</p>
+                        </div>
+                        <div class="p-4 border-l-4 border-purple-500 bg-purple-50">
+                            <h4 class="font-bold">Mode 4: Specific Configuration Sub-modes (<code>Router(config-if)#</code>)</h4>
+                            <p class="text-sm">Used for specific components like interfaces (ports) or virtual lines.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <hr class="border-slate-200 my-12">
+
+                <section id="router-config" class="scroll-mt-24 mb-20">
+                    <h2 class="text-3xl font-bold mb-10">3. Complete Router Configuration Steps</h2>
+
+                    <div class="mb-12">
+                        <h3 class="text-xl font-bold mb-4 flex items-center"><span class="step-badge">Step 1</span> Mode Navigation</h3>
+                        <p class="mb-4 text-gray-700">Move from User mode to Global Configuration mode to begin your setup.</p>
+                        <div class="bg-black text-green-400 p-6 rounded-lg font-mono text-sm leading-relaxed">
+                            Router> <b>enable</b> <span class="text-gray-500 ml-4"># Enters Privileged EXEC Mode</span><br>
+                            Router# <b>configure terminal</b> <span class="text-gray-500 ml-4"># Enters Global Config Mode</span>
+                        </div>
+                    </div>
+
+                    <div class="mb-12">
+                        <h3 class="text-xl font-bold mb-4 flex items-center"><span class="step-badge">Step 2</span> Assigning Identity & Security</h3>
+                        <p class="mb-4 text-gray-700">Identify the router on the network and protect it with an encrypted administrative password.</p>
+                        <div class="bg-black text-green-400 p-6 rounded-lg font-mono text-sm leading-relaxed">
+                            Router(config)# <b>hostname Core_Router</b><br>
+                            Core_Router(config)# <b>enable secret class123</b> <span class="text-gray-500 ml-4"># Encrypts the enable password</span>
+                        </div>
+                    </div>
+
+                    <div class="mb-12">
+                        <h3 class="text-xl font-bold mb-4 flex items-center"><span class="step-badge">Step 3</span> Interface Configuration (Mode 4)</h3>
+                        <p class="mb-4 text-gray-700">Assign an IP address to a physical port and manually activate the hardware.</p>
+                        <div class="bg-black text-green-400 p-6 rounded-lg font-mono text-sm leading-relaxed">
+                            Core_Router(config)# <b>interface gigabitEthernet 0/0</b> <span class="text-gray-500 ml-4"># Enters Interface Sub-mode</span><br>
+                            Core_Router(config-if)# <b>ip address 192.168.1.1 255.255.255.0</b><br>
+                            Core_Router(config-if)# <b>no shutdown</b> <span class="text-gray-500 ml-4"># Turns the port "ON"</span><br>
+                            Core_Router(config-if)# <b>exit</b>
+                        </div>
+                    </div>
+
+                    <div class="mb-12">
+                        <h3 class="text-xl font-bold mb-4 flex items-center"><span class="step-badge">Step 4</span> Saving Your Progress</h3>
+                        <p class="mb-4 text-gray-700">Cisco devices use RAM for active changes. You must copy these to the NVRAM (Startup Config) to prevent data loss on reboot.</p>
+                        <div class="bg-black text-green-400 p-6 rounded-lg font-mono text-sm leading-relaxed">
+                            Core_Router(config)# <b>end</b> <span class="text-gray-500 ml-4"># Returns to Privileged Mode (#)</span><br>
+                            Core_Router# <b>copy running-config startup-config</b> <span class="text-gray-500 ml-4"># Saves permanently</span>
+                        </div>
+                    </div>
+                </section>
+
+                <hr class="border-slate-200 my-12">
+
+                <section id="ping" class="scroll-mt-24 mb-20">
+                    <h2 class="text-3xl font-bold mb-6">4. Testing Connectivity (Ping)</h2>
+                    <p class="mb-6">Once configured, use the <code>ping</code> command to test if your router can reach other devices.</p>
+                    <div class="bg-gray-100 p-8 border-l-4 border-gray-400 font-mono text-sm">
+                        Core_Router# <b>ping 192.168.1.10</b><br>
+                        Sending 5, 100-byte ICMP Echos to 192.168.1.10, timeout is 2 seconds:<br>
+                        !!!!!<br>
+                        Success rate is 100 percent (5/5)
+                    </div>
+                </section>
+
+                <hr class="border-slate-200 my-12">
+
+                <section id="contact" class="scroll-mt-24 mb-20">
+                    <h2 class="text-3xl font-bold mb-6">5. Contact Us</h2>
+                    <p class="mb-8 text-gray-700">Have questions about the tutorial? Send us a message below.</p>
+                    
+                    <div class="bg-[#f9f9f9] p-8 rounded-xl border border-gray-200 shadow-sm">
+                        <form action="https://formspree.io/f/xkopgpog" method="POST" class="space-y-5">
+                            <div>
+                                <label class="block mb-2 font-bold text-gray-700">Full Name</label>
+                                <input type="text" name="name" placeholder="Your Name" required 
+                                    class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-[#04AA6D] focus:ring-2 focus:ring-[#04AA6D] focus:outline-none transition-all">
+                            </div>
+                            <div>
+                                <label class="block mb-2 font-bold text-gray-700">Email Address</label>
+                                <input type="email" name="_replyto" placeholder="email@example.com" required 
+                                    class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-[#04AA6D] focus:ring-2 focus:ring-[#04AA6D] focus:outline-none transition-all">
+                            </div>
+                            <div>
+                                <label class="block mb-2 font-bold text-gray-700">Message</label>
+                                <textarea name="message" rows="5" placeholder="How can we help you?" required 
+                                    class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-[#04AA6D] focus:ring-2 focus:ring-[#04AA6D] focus:outline-none transition-all"></textarea>
+                            </div>
+                            <button type="submit" 
+                                class="w-full bg-[#04AA6D] text-white font-bold py-3 px-6 rounded-lg hover:bg-black transition-colors shadow-lg">
+                                Send Message <i class="fa-solid fa-paper-plane ml-2"></i>
+                            </button>
+                        </form>
+                    </div>
+                </section>
+
+            </div>
+        </main>
+    </div>
+
+    <script>
+        const sidebarLinks = document.querySelectorAll('.sidebar-link');
+        const sections = document.querySelectorAll('section');
+
+        window.onscroll = () => {
+            let current = "";
+            sections.forEach((section) => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 150) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            sidebarLinks.forEach((link) => {
+                link.classList.remove('active-w3');
+                if (link.getAttribute('href').includes(current)) {
+                    link.classList.add('active-w3');
+                }
+            });
+        };
+    </script>
+</body>
+</html>
